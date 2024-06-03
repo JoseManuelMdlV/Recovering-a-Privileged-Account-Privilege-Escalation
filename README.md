@@ -24,7 +24,7 @@ Si queremos evitar el tener que formatear el ordenador y reinstalar el SO, lo qu
 2.	En el menú que nos saldrá una vez reiniciemos el ordenador, le damos a Solucionar Problemas -> Opciones Avanzadas -> Configuración de Inicio y le damos al botón “Reiniciar”.
  ![image](https://github.com/JoseManuelMdlV/Recovering-a-Privileged-Account-Privilege-Escalation-Threat/assets/83475119/e01af29d-e8cb-4925-b5b3-129a754aac10)
 
-3.	Entramos en el “Modo Seguro” presionando la tecla F4 y nos logueamos como User de forma normal.
+3.	Entramos en el “Modo Seguro” presionando la tecla F4 y nos logueamos como User de forma normal. Hemos de notar que es posible que, junto a User, aparezca otra cuenta llamada Administrador. Esta cuenta la tienen instalados los dispositivos con SO Windows precisamente para estos propósitos. Dicha cuenta, a priori, no tiene contraseña, por lo que cualquier persona con acceso al equipo podría usarla. 
 
 4.	una vez logueados como User, hacemos click derecho en el logo de Windows de nuestra barra de herramientas y seleccionamos “Administrador de Tareas”.
 ![image](https://github.com/JoseManuelMdlV/Recovering-a-Privileged-Account-Privilege-Escalation-Threat/assets/83475119/a532415e-3483-4038-be50-cf41dc87e8cd)
@@ -38,3 +38,9 @@ Si queremos evitar el tener que formatear el ordenador y reinstalar el SO, lo qu
 
 ![image](https://github.com/JoseManuelMdlV/Recovering-a-Privileged-Account-Privilege-Escalation-Threat/assets/83475119/9087c11d-59ba-49e1-ba7a-f750581a725d)
 
+### Ordenador dentro del dominio 
+8. Con el ordenador con un usuario con permisos de usuario, volvemos a realizar los pasos 4 a 7 y vemos que la opción de promoción a Administrador está bloqueada, que es lo que debería de ocurrir al no poseer privilegios.
+
+9. Repetimos todo el procedimientos desde el paso 1, notado que esa cuenta "Administrador" no aparece. Dicha cuenta en sí no debería de aparecer pues el ordenador pertenece a un dominio y el administrador debe ser la cuenta que posea los privilegios de administrador del dominio.
+
+10. Al repetir el paso 6, Windows nos pedirá las credenciales de un administrador, que será el del dominio. En tanto no conocemos dichas credenciales, será imposible acceder a la ventana de cambio de tipo de cuenta, por lo que será imposible para User poder obtener privilegios de administrador y, con ello, realizar cualquier acción maliciosa.
